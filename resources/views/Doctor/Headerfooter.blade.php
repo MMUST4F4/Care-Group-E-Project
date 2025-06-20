@@ -208,7 +208,10 @@
                                     </li>
                                     <li class="waves-effect waves-light">
                                         <a href="auth-normal-sign-in.html">
-                                            <i class="ti-layout-sidebar-left"></i> Logout
+                                            <form action="/logout" method="post">
+                                                @csrf
+                                                <button type="submit" class=" btn btn-danger">Logout </button>
+                                            </form>
                                         </a>
                                     </li>
                                 </ul>

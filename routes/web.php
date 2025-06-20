@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\DoctorMiddleware;
 Route::get('/', function () {
     return view('index');
 });
@@ -10,10 +11,31 @@ Route::get('/news/{slug}', function ($slug) {
     return view('news-details', ['slug' => $slug]);
 });
 
+//These routes are for the user (patient)
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+      if(Auth::user()->role == 'admin') {
+           return view('Admin.index');
+        } elseif(Auth::user()->role == 'doctor') {
+             return view('Doctor.index');
+        } else {
+            return view('User.dashboard');
+        }
+    })->name('dashboard');
 
-Route::get('/AdminDashboard', function () {
-    return view('Admin.index');
+    Route::get('/Status', function () {
+        return view('User.Status');
+    });
 });
+
+
+//Admin Middleware Routes
+Route::middleware([AdminMiddleware::class])->group(function(){
+
 Route::get('/widget', function () {
     return view('Admin.widget');
 });
@@ -42,19 +64,9 @@ Route::get('/typography', function () {
 Route::get('/element', function () {
     return view('Admin.element');
 });
-Route::get('/DoctorDashboard', function () {
-    return view('Doctor.index');
 });
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
-    Route::get('/Status', function () {
-        return view('User.Status');
-    });
+//Doctor Middleware Routes
+Route::middleware([DoctorMiddleware::class])->group(function(){
+
 });
