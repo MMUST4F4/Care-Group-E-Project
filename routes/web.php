@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\DoctorMiddleware;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DoctorController;
+use App\Models\Appointment;
+
 Route::get('/', function () {
     return view('index');
 });
@@ -10,6 +14,9 @@ Route::get('/news/{slug}', function ($slug) {
     // You can fetch the article from the database here if needed
     return view('news-details', ['slug' => $slug]);
 });
+
+Route::post('/appointment', [AppointmentController::class, 'store']);
+
 
 //These routes are for the user (patient)
 Route::middleware([
@@ -23,7 +30,7 @@ Route::middleware([
         } elseif(Auth::user()->role == 'doctor') {
              return view('Doctor.index');
         } else {
-            return view('User.dashboard');
+            return view('dashboard');
         }
     })->name('dashboard');
 
@@ -67,6 +74,7 @@ Route::get('/element', function () {
 });
 
 //Doctor Middleware Routes
-Route::middleware([DoctorMiddleware::class])->group(function(){
+// Route::middleware([DoctorMiddleware::class])->group(function(){
 
-});
+// });
+Route::get('/DoctorDashboard', [DoctorController::class, 'appointmentRequest']);

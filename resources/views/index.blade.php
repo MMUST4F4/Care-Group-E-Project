@@ -80,6 +80,11 @@ http://www.tooplate.com/view/2098-health
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                     </button>
+                     @if(session('success'))
+               <div class="alert alert-success">
+                    {{ session('success') }}
+               </div>
+               @endif
 
                     <!-- lOGO TEXT HERE -->
 
@@ -92,6 +97,7 @@ http://www.tooplate.com/view/2098-health
                          </div>
                     </a>
                </div>
+              
 
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
@@ -452,8 +458,7 @@ http://www.tooplate.com/view/2098-health
 
                     <div class="col-md-6 col-sm-6">
                          <!-- CONTACT FORM HERE -->
-                         <form id="appointment-form" role="form" method="post" action="/register" onsubmit="return validation()">
-                              <!-- SECTION TITLE -->
+                         <form id="appointment-form" role="form" method="post" action="/appointment" onsubmit="return validation()">
                               @csrf
                               <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
                                    <h2>Make an appointment</h2>
@@ -461,23 +466,23 @@ http://www.tooplate.com/view/2098-health
 
                               <div class="wow fadeInUp " data-wow-delay="0.8s">
                                    <div class="col-md-6 col-sm-6">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
+                                        <label for="patient_name">Name</label>
+                                        <input type="text" class="form-control" id="patient_name" name="patient_name" placeholder="Full Name">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                        <label for="patient_email">Email</label>
+                                        <input type="email" class="form-control" id="patient_email" name="patient_email" placeholder="Your Email">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
-                                        <label for="date">Select Date</label>
-                                        <input type="date" name="date" value="" class="form-control">
+                                        <label for="appointment_date">Select Date</label>
+                                        <input type="date" name="appointment_date" id="appointment_date" class="form-control">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
-                                        <label for="select">Select Department</label>
-                                        <select class="form-control">
+                                        <label for="department">Select Department</label>
+                                        <select class="form-control" name="department" id="department">
                                              <option>General Health</option>
                                              <option>Cardiology</option>
                                              <option>Dental</option>
@@ -486,10 +491,10 @@ http://www.tooplate.com/view/2098-health
                                    </div>
 
                                    <div class="col-md-12 col-sm-12">
-                                        <label for="telephone">Phone Number</label>
-                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone">
-                                        <label for="Message">Additional Message</label>
-                                        <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message"></textarea>
+                                        <label for="phone_number">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Phone">
+                                        <label for="reason_for_visit">Additional Message</label>
+                                        <textarea class="form-control" rows="5" id="reason_for_visit" name="reason_for_visit" placeholder="Message"></textarea>
                                         <button type="submit" class="form-control" id="cf-submit" name="submit">Submit Button</button>
                                    </div>
                               </div>
@@ -618,10 +623,10 @@ http://www.tooplate.com/view/2098-health
      <script src="js/custom.js"></script>
      <script>
           function validation() {
-               var name = document.getElementById("name").value;
-               var email = document.getElementById("email").value;
-               var phone = document.getElementById("phone").value;
-               var message = document.getElementById("message").value;
+               var name = document.getElementById("patient_name").value;
+               var email = document.getElementById("patient_email").value;
+               var phone = document.getElementById("phone_number").value;
+               var message = document.getElementById("reason_for_visit").value;
 
                if (name == "" || email == "" || phone == "" || message == "") {
                     alert("Please fill all fields");
