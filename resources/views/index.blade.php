@@ -458,7 +458,7 @@ http://www.tooplate.com/view/2098-health
 
                     <div class="col-md-6 col-sm-6">
                          <!-- CONTACT FORM HERE -->
-                         <form id="appointment-form" role="form" method="post" action="/appointment" onsubmit="return validation()">
+                         <form id="appointment-form"  role="form" method="post" action="/appointment" onsubmit="return validation()">
                               @csrf
                               <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
                                    <h2>Make an appointment</h2>

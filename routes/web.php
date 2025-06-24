@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
@@ -6,6 +6,7 @@ use App\Http\Middleware\DoctorMiddleware;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Models\Appointment;
+use App\Http\Controllers\DoctorAvailabilityController;
 
 Route::get('/', function () {
     return view('index');
@@ -27,8 +28,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
       if(Auth::user()->role == 'admin') {
            return view('Admin.index');
-        } elseif(Auth::user()->role == 'doctor') {
-             return view('Doctor.index');
+        } else if(Auth::user()->role == 'doctor') {
+             return redirect('/DoctorDashboard');
         } else {
             return view('dashboard');
         }
@@ -43,12 +44,17 @@ Route::middleware([
 //Admin Middleware Routes
 Route::middleware([AdminMiddleware::class])->group(function(){
 
-Route::get('/widget', function () {
-    return view('Admin.widget');
-});
-Route::get('/homepage', function () {
-    return view('Admin.index');
-});
+// Route::get('/widget', function () {
+//     $doctors = \App\Models\User::where('role', 'doctor')->get();
+//     return view('Admin.widget', compact('doctors'));
+// });
+
+
+
+
+// Route::get('/homepage', function () {
+//     return view('Admin.index');
+// });
 Route::get('/forms', function () {
     return view('Admin.form');
 });
@@ -74,7 +80,7 @@ Route::get('/element', function () {
 });
 
 //Doctor Middleware Routes
-// Route::middleware([DoctorMiddleware::class])->group(function(){
-
-// });
+Route::middleware([DoctorMiddleware::class])->group(function(){
 Route::get('/DoctorDashboard', [DoctorController::class, 'appointmentRequest']);
+Route::post('/doctor/availability', [DoctorAvailabilityController::class, 'store']);
+});
