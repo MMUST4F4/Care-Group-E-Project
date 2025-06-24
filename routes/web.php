@@ -97,4 +97,7 @@ Route::get('/approveddoctors',[AdminController::class, 'approvedDoctors'])->name
 Route::middleware([DoctorMiddleware::class])->group(function(){
 Route::get('/DoctorDashboard', [DoctorController::class, 'appointmentRequest']);
 Route::post('/doctor/availability', [DoctorAvailabilityController::class, 'store']);
+
+  Route::get('/doctor/profile', [DoctorController::class, 'profile'])->name('doctor.profile');
+    Route::post('/doctor/profile', [DoctorController::class, 'updateProfile'])->name('doctor.profile.update');
 });

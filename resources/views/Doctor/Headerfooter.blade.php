@@ -17,24 +17,25 @@
     <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
     <meta name="author" content="Codedthemes" />
     <!-- Favicon icon -->
-    <link rel="icon" href="Doctor/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ asset('Doctor/assets/images/favicon.ico') }}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
     <!-- waves.css -->
-    <link rel="stylesheet" href="Doctor/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('Doctor/assets/pages/waves/css/waves.min.css') }}">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="Doctor/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Doctor/assets/css/bootstrap/css/bootstrap.min.css') }}">
     <!-- waves.css -->
-    <link rel="stylesheet" href="Doctor/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ asset('Doctor/assets/pages/waves/css/waves.min.css') }}">
     <!-- themify icon -->
-    <link rel="stylesheet" type="text/css" href="Doctor/assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Doctor/assets/icon/themify-icons/themify-icons.css') }}">
     <!-- font-awesome-n -->
-    <link rel="stylesheet" type="text/css" href="Doctor/assets/css/font-awesome-n.min.css">
-    <link rel="stylesheet" type="text/css" href="Doctor/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Doctor/assets/css/font-awesome-n.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Doctor/assets/css/font-awesome.min.css') }}">
     <!-- scrollbar.css -->
-    <link rel="stylesheet" type="text/css" href="Doctor/assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Doctor/assets/css/jquery.mCustomScrollbar.css') }}">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="Doctor/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Doctor/assets/css/style.css') }}">
+   
 </head>
 
 <body>
@@ -181,7 +182,7 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
-                                    <img src="Doctor/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                    <img src="{{ asset('Doctor/assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
                                     <span>John Doe</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
@@ -192,7 +193,7 @@
                                         </a>
                                     </li>
                                     <li class="waves-effect waves-light">
-                                        <a href="user-profile.html">
+                                        <a href="">
                                             <i class="ti-user"></i> Profile
                                         </a>
                                     </li>
@@ -236,7 +237,7 @@
                                 <div class="main-menu-content">
                                     <ul>
                                         <li class="more-details">
-                                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                                            <a href="/doctor/profile"><i class="ti-user"></i>View Profile</a>
                                             <a href="#!"><i class="ti-settings"></i>Settings</a>
                                             <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
                                         </li>
@@ -261,152 +262,7 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                            </ul>
-                            <div class="pcoded-navigation-label">UI Element</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>BC</b></span>
-                                        <span class="pcoded-mtext">Basic</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class=" ">
-                                            <a href="breadcrumb.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Breadcrumbs</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="button.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Button</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="accordion.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Accordion</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="tabs.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Tabs</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="color.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Color</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="label-badge.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Label Badge</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="tooltip.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Tooltip And Popover</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="typography.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Typography</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="notification.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Notifications</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div class="pcoded-navigation-label">Forms</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="form-elements-component.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext">Form</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="pcoded-navigation-label">Tables</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="bs-basic-table.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
-                                        <span class="pcoded-mtext">Table</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="pcoded-navigation-label">Chart And Maps</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="chart-morris.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>C</b></span>
-                                        <span class="pcoded-mtext">Charts</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="map-google.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-map-alt"></i><b>M</b></span>
-                                        <span class="pcoded-mtext">Maps</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="pcoded-navigation-label">Pages</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="pcoded-hasmenu ">
-                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-id-badge"></i><b>A</b></span>
-                                        <span class="pcoded-mtext">Pages</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class="">
-                                            <a href="auth-normal-sign-in.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Login</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="auth-sign-up.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Registration</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="sample-page.html" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-layout-sidebar-left"></i><b>S</b></span>
-                                                <span class="pcoded-mtext">Sample Page</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                   
                         </div>
                     </nav>
                     <div class="pcoded-content">
@@ -417,7 +273,7 @@
                                     <div class="col-md-8">
                                         <div class="page-header-title">
                                             <h5 class="m-b-10">Dashboard</h5>
-                                            <p class="m-b-0">Welcome to Material Able</p>
+                                            <p class="m-b-0">CareGroup</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -439,23 +295,23 @@
                             @yield('content')
                             
     <!-- Required Jquery -->
-    <script type="text/javascript" src="Doctor/assets/js/jquery/jquery.min.js "></script>
-    <script type="text/javascript" src="Doctor/assets/js/jquery-ui/jquery-ui.min.js "></script>
-    <script type="text/javascript" src="Doctor/assets/js/popper.js/popper.min.js"></script>
-    <script type="text/javascript" src="Doctor/assets/js/bootstrap/js/bootstrap.min.js "></script>
+    <script type="text/javascript" src="{{ asset('Doctor/assets/js/jquery/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Doctor/assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Doctor/assets/js/popper.js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Doctor/assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- waves js -->
-    <script src="Doctor/assets/pages/waves/js/waves.min.js"></script>
+    <script src="{{ asset('Doctor/assets/pages/waves/js/waves.min.js') }}"></script>
     <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="Doctor/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="{{ asset('Doctor/assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 
     <!-- slimscroll js -->
-    <script src="Doctor/assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
+    <script src="{{ asset('Doctor/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
     <!-- menu js -->
-    <script src="Doctor/assets/js/pcoded.min.js"></script>
-    <script src="Doctor/assets/js/vertical/vertical-layout.min.js "></script>
+    <script src="{{ asset('Doctor/assets/js/pcoded.min.js') }}"></script>
+    <script src="{{ asset('Doctor/assets/js/vertical/vertical-layout.min.js') }}"></script>
 
-    <script type="text/javascript" src="Doctor/assets/js/script.js "></script>
+    <script type="text/javascript" src="{{ asset('Doctor/assets/js/script.js') }}"></script>
 </body>
 
 </html>

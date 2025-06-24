@@ -15,7 +15,33 @@ class DoctorController extends Controller
     return view('Doctor.appointmentRequest', compact('appointments', 'availabilities'));
     }
 
+    public function profile()
+{
+    $doctor = auth()->user();
+    return view('Doctor.profile', compact('doctor'));
+}
+
+public function updateProfile(Request $request)
+{
+    $doctor = auth()->user();
+
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . $doctor->id,
+        'phone' => 'nullable|string|max:20',
+        'specialization' => 'nullable|string|max:255',
+        'experience' => 'nullable|string|max:255',
+        // Add more fields as needed
+    ]);
+
+    $doctor->update($request->only(['name', 'email', 'phone', 'specialization', 'experience']));
+
+    return redirect()->route('doctor.profile')->with('success', 'Profile updated successfully!');
+}
+
 
 
 
 }
+
+

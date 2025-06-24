@@ -281,7 +281,7 @@ code {
 
 .card .card-block a.dropdown-item:active,
 .card .card-block a.dropdown-item .active {
-	background-color: #448aff;
+	background-color: #448fff;
 }
 
 .card .card-block.remove-label i {
@@ -4925,6 +4925,7 @@ table tbody .border-bottom-info td {
 .sidebar_toggle a {
 	margin: -5px;
 	line-height: 1;
+	
 }
 
 
@@ -4935,6 +4936,9 @@ table tbody .border-bottom-info td {
 .header-navbar {
 	min-height: 56px;
 	padding: 0;
+	 background: linear-gradient(90deg, #0158a0 0%, #6bc422 100%) !important;
+	 
+	
 }
 
 .header-navbar .navbar-wrapper .navbar-logo {
