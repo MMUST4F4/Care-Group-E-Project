@@ -18,6 +18,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('user'); 
+            $table->string('doctorstatus')->default('null'); 
+            $table->string('phone')->default('not provided'); 
+            $table->string('specialization')->default('not provided'); 
+            $table->string('cv')->default('not provided'); 
+            $table->string('experience')->default('not provided');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

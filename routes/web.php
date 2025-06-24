@@ -6,7 +6,9 @@ use App\Http\Middleware\DoctorMiddleware;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Models\Appointment;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorAvailabilityController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
@@ -38,6 +40,11 @@ Route::middleware([
     Route::get('/Status', function () {
         return view('User.Status');
     });
+
+    Route::get('/becomeadoctor', function () {
+        return view('becomeadoctor');
+    });
+    Route::post('requestfordoctor',[UserController::class, 'requestForDoctor'])->name('requestfordoctor');
 });
 
 
@@ -77,6 +84,13 @@ Route::get('/typography', function () {
 Route::get('/element', function () {
     return view('Admin.element');
 });
+
+Route::get('/doctors',[AdminController::class, 'getdoctors']);
+
+Route::post('/doctoraccept/{doctor}/',[AdminController::class, 'doctorAccept'])->name('doctoraccept');
+Route::post('/doctorreject/{doctor}/',[AdminController::class, 'doctorReject'])->name('doctorreject');
+
+Route::get('/approveddoctors',[AdminController::class, 'approvedDoctors'])->name('approveddoctors');
 });
 
 //Doctor Middleware Routes
