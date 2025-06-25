@@ -6,6 +6,7 @@
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    margin-bottom: 40px; /* Spacing between tables */
 }
 
 .table {
@@ -23,7 +24,7 @@
     color: #fff;
 }
 .table th, .table td {
-    padding: 14px 18px;
+    padding: 16px 18px; /* Increased padding for clarity */
     text-align: left;
     border-bottom: 1px solid #f0f0f0;
     transition: background 0.2s;
@@ -46,6 +47,7 @@
     width: 100%;
     overflow-x: auto;
     margin-top: 20px;
+    margin-bottom: 30px; /* Spacing below the availability table */
 }
 
 .availability-table {
@@ -64,7 +66,7 @@
 }
 
 .availability-table th, .availability-table td {
-    padding: 12px 16px;
+    padding: 16px 16px; /* Increased padding for clarity */
     text-align: left;
     border-bottom: 1px solid #e0f0e0;
 }
@@ -80,6 +82,20 @@
 
 .availability-table tr:last-child td {
     border-bottom: none;
+}
+
+/* Headings style */
+h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding-left: 2px;
+    font-weight: 600;
+}
+
+/* Optional: Add a little left/right padding to the containers for better alignment on wide screens */
+.table-responsive, .availability-table-responsive {
+    padding-left: 8px;
+    padding-right: 8px;
 }
 </style>
 
@@ -112,6 +128,8 @@
     </table>
 
 </div>
+<br>
+<br>
 <br>
 <h3>Your Availabilities</h3>
 <div class="availability-table-responsive" style="margin-top:20px;">

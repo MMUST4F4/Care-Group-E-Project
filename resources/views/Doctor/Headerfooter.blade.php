@@ -183,7 +183,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
                                     <img src="{{ asset('Doctor/assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
-                                    <span>John Doe</span>
+                                   <span>{{ Auth::user()->name }}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -208,12 +208,14 @@
                                         </a>
                                     </li>
                                     <li class="waves-effect waves-light">
-                                        <a href="auth-normal-sign-in.html">
-                                            <form action="/logout" method="post">
+                                        <!-- <a href="auth-normal-sign-in.html">
+                                            
+                                        </a> -->
+                                        <form action="/logout" method="post">
                                                 @csrf
-                                                <button type="submit" class=" btn btn-danger">Logout </button>
+                                                 <button type="submit" class="btn btn-danger" style="width:100%;text-align:left;">
+                                                  <i class="ti-layout-sidebar-left"></i> Logout
                                             </form>
-                                        </a>
                                     </li>
                                 </ul>
                             </li>
@@ -231,7 +233,7 @@
                                 <div class="main-menu-header">
                                     <img class="img-80 img-radius" src="Doctor/assets/images/avatar-4.jpg" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span id="more-details">John Doe<i class="fa fa-caret-down"></i></span>
+                                        <span id="more-details">Profile<i class="fa fa-caret-down"></i></span>
                                     </div>
                                 </div>
                                 <div class="main-menu-content">
@@ -245,20 +247,14 @@
                                 </div>
                             </div>
                             <div class="p-15 p-b-0">
-                                <form class="form-material">
-                                    <div class="form-group form-primary">
-                                        <input type="text" name="footer-email" class="form-control">
-                                        <span class="form-bar"></span>
-                                        <label class="float-label"><i class="fa fa-search m-r-10"></i>Search Friend</label>
-                                    </div>
-                                </form>
+                               
                             </div>
-                            <div class="pcoded-navigation-label">Navigation</div>
-                            <ul class="pcoded-item pcoded-left-item">
+                            
+                            <ul class="pcoded-item pcoded-left-item ">
                                 <li class="active">
                                     <a href="/DoctorDashboard" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext">Appointment</span>
+                                        <span class="pcoded-mtext btn-appoimtment">Appointment</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>

@@ -79,6 +79,59 @@
 .availability-table tr:last-child td {
     border-bottom: none;
 }
+
+/* Attractive card style for the update availability form */
+.update-availability-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(44, 187, 99, 0.12), 0 1.5px 6px rgba(0,0,0,0.04);
+    padding: 32px 28px 24px 28px;
+    max-width: 420px;
+    margin: 0 auto 40px auto;
+    border: 1px solid #e6f4ea;
+    transition: box-shadow 0.2s;
+}
+.update-availability-card label {
+    font-weight: 600;
+    color: #11c15b;
+    margin-bottom: 6px;
+    display: block;
+}
+.update-availability-card select,
+.update-availability-card input[type="time"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #b2dfdb;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    background: #f7fff7;
+    transition: border 0.2s;
+}
+.update-availability-card select:focus,
+.update-availability-card input[type="time"]:focus {
+    border-color: #11c15b;
+    outline: none;
+}
+.update-availability-card input[type="checkbox"] {
+    accent-color: #11c15b;
+    margin-right: 6px;
+}
+.update-availability-card button[type="submit"] {
+    background: linear-gradient(90deg, #11c15b 0%, #43e97b 100%);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(44, 187, 99, 0.08);
+    transition: background 0.2s;
+}
+.update-availability-card button[type="submit"]:hover {
+    background: linear-gradient(90deg, #43e97b 0%, #11c15b 100%);
+}
 </style>
 @section('content')
 <h2> Appointment Requests</h2>
@@ -108,6 +161,8 @@
         </tbody>
     </table>
 </div>
+<br>
+<br>
 <br>
 
 <h3>Your Availabilities</h3>
@@ -139,11 +194,15 @@
         </tbody>
     </table>
 </div>
+<br>
+<br>
+<br>
+
 <h3>Update Your Availability</h3>
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif
-<form method="POST" action="{{ url('/doctor/availability') }}" style="margin-bottom: 30px;">
+<form method="POST" action="{{ url('/doctor/availability') }}" class="update-availability-card">
     @csrf
     <div style="margin-bottom:10px;">
         <label>Day of Week:</label>
