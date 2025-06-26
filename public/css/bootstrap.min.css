@@ -5359,7 +5359,8 @@ textarea.input-group-sm>.input-group-btn>.btn {
      font-family: inherit;
     padding-right: 2px;
     color: #108916;
-    
+   
+
 }
 .group{
     color: silver;
@@ -5373,17 +5374,35 @@ textarea.input-group-sm>.input-group-btn>.btn {
     color: #6dff75;
     font-size: 15px;
     font-weight: 800vh;
-    margin-left: 5px;
+    margin-left: -9px;
     padding-right: 2px;
     padding: 5px;
     height: 45px;
    
 }
+
+
 .care-logo {
     font-family: 'Segoe UI', sans-serif;
     font-size: 22px;
     color: #4CAF50; /* Care green */
     transition: all 0.3s ease;
+}
+@media (max-width: 767px) {
+    .logoutbtn {
+        margin-top: 8px !important;
+        width: 50%;
+        display: block;
+        margin-left: 20px !important;
+    }
+    .d-flex {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    .fa-user{
+        margin-top: 8px !important;
+        margin-left: -9px !important;
+    }
 }
 
 .care-logo:hover {

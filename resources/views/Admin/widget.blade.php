@@ -17,7 +17,7 @@
         <tr>
             <td>{{ $doctor->name }}</td>
             <td>{{ $doctor->email }}</td>
-            <td>{{ $doctor->department ?? 'N/A' }}</td>
+            <td>{{ $doctor->department ?: 'Not Assigned'}}</td>
         </tr>
         @endforeach
     </tbody>

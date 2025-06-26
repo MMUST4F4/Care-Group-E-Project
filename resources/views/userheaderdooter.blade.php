@@ -23,6 +23,7 @@
                position:relative;
                top:10px
           }
+          
      </style>
      <!--
 
@@ -38,12 +39,11 @@ http://www.tooplate.com/view/2098-health
      <meta name="author" content="Tooplate">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
-
-     <link rel="stylesheet" href="css/animate.css">
-     <link rel="stylesheet" href="css/owl.carousel.css">
-     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
@@ -69,9 +69,12 @@ http://www.tooplate.com/view/2098-health
           </div>
      </section>
 
-
+@if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
      <!-- HEADER -->
      <header>
+              
           <div class="container">
                <div class="row">
 
@@ -105,11 +108,7 @@ http://www.tooplate.com/view/2098-health
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                     </button>
-                     @if(session('success'))
-               <div class="alert alert-success">
-                    {{ session('success') }}
-               </div>
-               @endif
+                
 
                     <!-- lOGO TEXT HERE -->
 
@@ -150,8 +149,8 @@ http://www.tooplate.com/view/2098-health
                               </div>
                               @else
                               <div class="d-flex">
-                                   <a href="/login"><i class="fa-solid fa-user"></i>Sign In</a>
-                                   <a href="/register"><i class="fa-solid fa-user"></i>Sign Up</a>
+                                   <a href="/login "><i class="fa-solid "></i>Sign In</a>
+                                   <a href="/register "><i class="fa-solid  "></i>Sign Up</a>
                               </div>
                               @endif
                          </li>

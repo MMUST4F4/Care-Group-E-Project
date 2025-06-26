@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
@@ -9,15 +9,13 @@ use App\Models\Appointment;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorAvailabilityController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/news/{slug}', function ($slug) {
-    // You can fetch the article from the database here if needed
-    return view('news-details', ['slug' => $slug]);
-});
+Route::get('/', [HomeController::class, 'index']);
 
+
+Route::get('/news/{news}', [\App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
 Route::post('/appointment', [AppointmentController::class, 'store']);
 
 
@@ -28,6 +26,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
+            
       if(Auth::user()->role == 'admin') {
            return view('Admin.index');
         } else if(Auth::user()->role == 'doctor') {
@@ -47,14 +46,17 @@ Route::middleware([
     Route::post('requestfordoctor',[UserController::class, 'requestForDoctor'])->name('requestfordoctor');
 });
 
-
+ 
 //Admin Middleware Routes
 Route::middleware([AdminMiddleware::class])->group(function(){
 
-// Route::get('/widget', function () {
-//     $doctors = \App\Models\User::where('role', 'doctor')->get();
-//     return view('Admin.widget', compact('doctors'));
-// });
+Route::get('/widget', function () {
+    $doctors = \App\Models\User::where('role', 'doctor')->get();
+    return view('Admin.widget', compact('doctors'));
+});
+
+
+Route::resource('news', \App\Http\Controllers\NewsController::class)->except(['show']);
 
 
 
@@ -62,9 +64,7 @@ Route::middleware([AdminMiddleware::class])->group(function(){
 // Route::get('/homepage', function () {
 //     return view('Admin.index');
 // });
-Route::get('/forms', function () {
-    return view('Admin.form');
-});
+
 Route::get('/table',function () {
     return view('Admin.table');
 
