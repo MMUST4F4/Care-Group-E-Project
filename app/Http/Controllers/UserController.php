@@ -23,6 +23,7 @@ class UserController extends Controller
             $user->cv = $cvName;
        
         $user->experience = $request->input('experience');
+        $user->city = $request->citylist;
         $user->save();
 
         return redirect()->back()->with('success', 'Your request to become a doctor has been submitted successfully.');

@@ -160,11 +160,13 @@
                          <h1>Latest News</h1>
                     </div>
                </div>
-               @foreach($latestNews as $news)
+              @if($latestNews->count() > 0)
+              @foreach($latestNews as $news)
                <div class="col-md-4 col-sm-6">
                     <div class="news-thumb wow fadeInUp" data-wow-delay="0.{{ $loop->iteration * 2 }}s">
                          <a href="{{ route('news.show', $news->id) }}">
-                              <img src="{{ $news->image ? asset('storage/'.$news->image) : asset('images/news-image1.jpg') }}" class="img-responsive" alt="">
+<img src="{{ $news->image ? asset($news->image) : asset('images/news-image1.jpg') }}" class="img-responsive" alt="">
+
                          </a>
                          <div class="news-info">
                               <span>{{ $news->created_at ? $news->created_at->format('F d, Y') : '' }}</span>
@@ -185,6 +187,10 @@
                     </div>
                </div>
                @endforeach
+              @else
+               
+              <p>No News Added Yet !</p>
+              @endif
           </div>
      </div>
 </section>

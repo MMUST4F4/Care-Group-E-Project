@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone')->default('not provided'); 
             $table->string('specialization')->default('not provided'); 
             $table->string('cv')->default('not provided'); 
+            $table->string('city')->default('not provided'); 
             $table->string('experience')->default('not provided');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

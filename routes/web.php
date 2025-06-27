@@ -11,6 +11,7 @@ use App\Http\Controllers\DoctorAvailabilityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use App\Models\cities;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -41,7 +42,9 @@ Route::middleware([
     });
 
     Route::get('/becomeadoctor', function () {
-        return view('becomeadoctor');
+        $cities = cities::get();
+
+        return view('becomeadoctor',compact('cities'));
     });
     Route::post('requestfordoctor',[UserController::class, 'requestForDoctor'])->name('requestfordoctor');
 });
@@ -91,6 +94,14 @@ Route::post('/doctoraccept/{doctor}/',[AdminController::class, 'doctorAccept'])-
 Route::post('/doctorreject/{doctor}/',[AdminController::class, 'doctorReject'])->name('doctorreject');
 
 Route::get('/approveddoctors',[AdminController::class, 'approvedDoctors'])->name('approveddoctors');
+
+Route::get('/addcities',function(){
+    return view('admin.addcities');
+
+});
+
+Route::post('/addcity',[AdminController::class,('addcity')]);
+
 });
 
 //Doctor Middleware Routes
@@ -100,4 +111,9 @@ Route::post('/doctor/availability', [DoctorAvailabilityController::class, 'store
 
   Route::get('/doctor/profile', [DoctorController::class, 'profile'])->name('doctor.profile');
     Route::post('/doctor/profile', [DoctorController::class, 'updateProfile'])->name('doctor.profile.update');
+
+
+
+
+
 });

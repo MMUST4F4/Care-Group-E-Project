@@ -59,6 +59,14 @@
                     <label for="cv">Upload CV</label>
                     <input type="file" class="form-control-file" id="cv" name="cv" required>
                 </div>
+                <div class="form-group">
+                    <select name="citylist" class="w-100 p-1 form-control" id="">
+                        <option value="">Select Residence City</option>
+                        @foreach($cities as $c)
+                        <option value="{{$c->cityname}}">{{$c->cityname}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit Application</button>
             </form>
     @endif

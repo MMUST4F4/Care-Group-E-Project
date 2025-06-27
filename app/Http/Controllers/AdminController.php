@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\cities;
 
 class AdminController extends Controller
 {
@@ -41,5 +42,12 @@ class AdminController extends Controller
   {
     $doctors = User::where('role', 'doctor')->get();
     return view('Admin.approveddoctors', compact('doctors'));
+  }
+  public function addcity(Request $req)
+  {
+   $table = new cities();
+   $table->cityname = $req->cityname;
+   $table->save();
+   return redirect()->back()->with('success','City has been added');
   }
 }
