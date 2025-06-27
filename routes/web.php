@@ -61,12 +61,10 @@ Route::get('/widget', function () {
 
 Route::resource('news', \App\Http\Controllers\NewsController::class)->except(['show']);
 
+Route::get('/cities', [AdminController::class, 'getCities']);
 
+Route::delete('/deleteCity/{city}', [AdminController::class, 'deleteCity'])->name('admin.deleteCity');
 
-
-// Route::get('/homepage', function () {
-//     return view('Admin.index');
-// });
 
 Route::get('/table',function () {
     return view('Admin.table');

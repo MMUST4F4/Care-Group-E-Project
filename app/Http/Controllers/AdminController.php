@@ -50,4 +50,17 @@ class AdminController extends Controller
    $table->save();
    return redirect()->back()->with('success','City has been added');
   }
+
+  public function getCities()
+  {
+      $cities = cities::all();
+      return view('Admin.cities', compact('cities'));
+  }
+
+  public function deleteCity($city)
+  {
+      $city = cities::findOrFail($city);
+      $city->delete();
+      return redirect()->back()->with('success', 'City deleted successfully.');
+  }
 }

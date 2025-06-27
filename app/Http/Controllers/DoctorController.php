@@ -31,10 +31,11 @@ public function updateProfile(Request $request)
         'phone' => 'nullable|string|max:20',
         'specialization' => 'nullable|string|max:255',
         'experience' => 'nullable|string|max:255',
+        'city' => 'required|string|max:255',
         // Add more fields as needed
     ]);
 
-    $doctor->update($request->only(['name', 'email', 'phone', 'specialization', 'experience']));
+    $doctor->update($request->only(['name', 'email', 'phone', 'specialization', 'experience', 'city']));
 
     return redirect()->route('doctor.profile')->with('success', 'Profile updated successfully!');
 }

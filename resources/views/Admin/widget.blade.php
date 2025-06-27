@@ -9,6 +9,7 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>City</th>
             <th>Department</th>
         </tr>
     </thead>
@@ -17,6 +18,7 @@
         <tr>
             <td>{{ $doctor->name }}</td>
             <td>{{ $doctor->email }}</td>
+            <td>{{ $doctor->city }}</td>
             <td>{{ $doctor->department ?: 'Not Assigned'}}</td>
         </tr>
         @endforeach

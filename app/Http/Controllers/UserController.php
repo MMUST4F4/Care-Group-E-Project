@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\cities; 
 
 class UserController extends Controller
 {
@@ -15,6 +16,7 @@ class UserController extends Controller
         $user->doctorstatus = 'pending';
         $user->phone = $request->input('phone');
         $user->specialization = $request->input('specialization');
+        $user->city = $request->input('city');
         //store the cv file name in database
         
             $cv = $request->file('cv');
@@ -28,5 +30,7 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'Your request to become a doctor has been submitted successfully.');
     }
+   
     
 }
+// This controller handles user-related actions, such as requesting to become a doctor and retrieving cities.

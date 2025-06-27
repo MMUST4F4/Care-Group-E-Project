@@ -72,7 +72,8 @@
                     </div>
                     <a href="/widget" class="nav-item nav-link"><i class="fa fa-th me-2"></i>CurrentDoctors</a>
                 
-                    <a href="/table" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+                    <a href="/addcities" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Add Cities</a>
+                     <a href="/cities" class="nav-item nav-link"><i class="fa fa-table me-2"></i> Cities</a>
                     <a href="/charts" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Other</a>

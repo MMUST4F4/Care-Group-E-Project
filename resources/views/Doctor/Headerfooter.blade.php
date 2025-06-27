@@ -133,7 +133,7 @@
                             </li>
                             <li>
                                 <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
-                                    <i class="ti-fullscreen"></i>
+                                    <i class="ti-fullscreen" style="margin-top: 30px !important;"></i>
                                 </a>
                             </li>
                         </ul>
