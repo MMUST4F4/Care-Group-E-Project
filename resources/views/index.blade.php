@@ -304,12 +304,20 @@
                               </div>
 
                               <div class="col-md-6 col-sm-6">
-                                   <label for="department">Select Department</label>
-                                   <select class="form-control" name="department" id="department">
-                                        <option>General Health</option>
-                                        <option>Cardiology</option>
-                                        <option>Dental</option>
-                                        <option>Medical Research</option>
+                                   <label for="department">Select Your City</label>
+                                   <select class="form-control" name="citylist" id="citylist">
+                                        <option value="" selected disabled>Select City</option>
+                                        @foreach($cities as $city)
+                                        <option value="{{$city->cityname}}">{{$city->cityname}}</option>
+                                        @endforeach
+                                   </select>
+                              </div>
+
+                                <div class="col-md-12 col-md-12">
+                                   <label for="department">Select Your Doctor</label>
+                                   <select class="form-control" name="doctorlist" id="doctorlist">
+                                       
+                                        
                                    </select>
                               </div>
 
@@ -318,7 +326,7 @@
                                    <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Phone">
                                    <label for="reason_for_visit">Additional Message</label>
                                    <textarea class="form-control" rows="5" id="reason_for_visit" name="reason_for_visit" placeholder="Message"></textarea>
-                                   <button type="submit" class="form-control" id="cf-submit" name="submit">Submit Button</button>
+                                   <button disabled type="submit" class="" id="cf-submit" name="submit">Submit Button</button>
                               </div>
                          </div>
                     </form>
@@ -342,6 +350,45 @@
 	-->
      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 </section>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+     var submitbtn = document.getElementById('cf-submit')
+     $('#citylist').change(function(){
+          
 
+          var parentlist = document.getElementById('doctorlist');
+          var cityname = $(this).val();
+          console.log(cityname)
+         $.ajax({
+          url:"/getdoctors",
+          type:"POST",
+          data:{
+               "cname":cityname,
+               "_token":"{{ csrf_token() }}"
+          },
+        success:function(data)
+{
+   parentlist.innerHTML = ''; // clear previous options
+
+   if(data.length == 0){
+       var option = document.createElement('option');
+       option.innerText = 'No doctors found';
+       parentlist.append(option);
+       $('#cf-submit').attr('disabled', true);
+
+
+   } else {
+       for(i = 0 ; i < data.length ; i++)
+       {
+           var option = document.createElement('option');
+           option.innerText = data[i].name;
+           parentlist.append(option);
+       }
+   }
+}
+
+         })
+     })
+</script>
 
 @endsection

@@ -115,3 +115,7 @@ Route::post('/doctor/availability', [DoctorAvailabilityController::class, 'store
 
 
 });
+
+
+
+Route::post('/getdoctors',[UserController::class,('getdoctorsoncity')]);

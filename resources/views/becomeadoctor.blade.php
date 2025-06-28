@@ -67,6 +67,16 @@
                         @endforeach
                     </select>
                 </div>
+               
+                <div class="form-group">
+                  <div class="d-flex">
+                      <label for="">Will Take Appoitnments <b>From</b></label>
+                    <input type="time" name="starttime" class="form-control">
+                    <label for="">Till</label>
+                    <input type="time" name="stoptime" class="form-control">
+                  </div>
+                    
+                </div>
                 <button type="submit" class="btn btn-primary">Submit Application</button>
             </form>
     @endif
