@@ -127,18 +127,14 @@
                         </a>
                     </div>
                     <div class="navbar-container container-fluid">
-                        <ul class="nav-left">
+                        <ul class="nav-left mt-4">
                             <li>
-                                <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                                <div class="sidebar_toggle" ><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
                             </li>
-                            <li>
-                                <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
-                                    <i class="ti-fullscreen" style="margin-top: 30px !important;"></i>
-                                </a>
-                            </li>
+                            
                         </ul>
                         <ul class="nav-right">
-                            <li class="header-notification">
+                            <!-- <li class="header-notification">
                                 <a href="#!" class="waves-effect waves-light">
                                     <i class="ti-bell"></i>
                                     <span class="badge bg-c-red"></span>
@@ -179,10 +175,10 @@
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
-                                    <img src="{{ asset('Doctor/assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
+                                    <!-- <img src="{{ asset('Doctor/assets/images/avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image"> -->
                                    <span>{{ Auth::user()->name }}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>

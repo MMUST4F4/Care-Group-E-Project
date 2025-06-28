@@ -3,7 +3,7 @@
 
 <head>
 
-     <title>Health - Medical Website Template</title>
+     <title>CareGroup</title>
      <style>
           .becomeadoctor{
                height:50px;
