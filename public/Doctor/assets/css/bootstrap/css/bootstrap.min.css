@@ -123,12 +123,16 @@ abbr[title] {
     background-color: #4CAF50;
     color: white;
     font-size: 16px;
+    
     width: 32px;
     height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+.logo-icon {
     
 }
 
@@ -4341,6 +4345,7 @@ tbody.collapse.show {
     .navbar-expand-sm>.container,
     .navbar-expand-sm>.container-fluid {
         padding-right: 0;
+        display: flex;
         padding-left: 0
     }
 }

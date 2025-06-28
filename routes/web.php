@@ -17,7 +17,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 
 Route::get('/news/{news}', [\App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
-Route::post('/appointment', [AppointmentController::class, 'store']);
+Route::post('/appointment', [AppointmentController::class, 'store'])->middleware('auth:sanctum');
 
 
 //These routes are for the user (patient)
