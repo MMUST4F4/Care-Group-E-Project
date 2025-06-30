@@ -17,6 +17,7 @@
                 <th>Phone Number</th>
                 <th>Appointment Date</th>
                 <th>Reason For Visit</th>
+                <th>Status</th>
                 
             </tr>
         </thead>
@@ -28,6 +29,7 @@
                     <td>{{ $appointment->phone_number }}</td>
                     <td>{{ $appointment->appointment_date }}</td>
                     <td>{{ $appointment->reason_for_visit }}</td>
+                    <td>{{ $appointment->status }}</td>
                 </tr>
             @endforeach
         </tbody>

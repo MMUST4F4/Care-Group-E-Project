@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\DoctorAvailability;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 class DoctorController extends Controller
 {
     //
     public function appointmentRequest()
     {
-         $appointments = Appointment::all();
-    $availabilities = DoctorAvailability::where('doctor_id', auth()->id())->get();
+         $appointments = Appointment::where('doctor_id',Auth::user()->id)->get();
+    $availabilities = DoctorAvailability::where('doctor_id', Auth::user()->id)->get();
     return view('Doctor.appointmentRequest', compact('appointments', 'availabilities'));
     }
 

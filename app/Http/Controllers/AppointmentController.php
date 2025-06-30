@@ -40,7 +40,7 @@ class AppointmentController extends Controller
 
   public function viewAllAppointments()
     {
-        $appointments = Appointment::with('doctor')->get();
+        $appointments = Appointment::get();
         return view('Admin.viewallappointments', compact('appointments'));
     }
    
