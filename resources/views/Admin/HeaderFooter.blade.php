@@ -78,7 +78,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Other</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/" class="dropdown-item">Back To Website</a>
+                            <a href="/viewallappointments" class="dropdown-item">View All Appointments</a>
                             <a href="/signup" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
                             <a href="blank.html" class="dropdown-item">Blank Page</a>

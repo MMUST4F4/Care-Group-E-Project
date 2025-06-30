@@ -125,3 +125,5 @@ Route::post('/doctor/availability', [DoctorAvailabilityController::class, 'store
 
 
 Route::post('/getdoctors',[UserController::class,('getdoctorsoncity')]);
+
+Route::get('/viewallappointments', [AppointmentController::class, 'viewAllAppointments'])->name('view.all.appointments');

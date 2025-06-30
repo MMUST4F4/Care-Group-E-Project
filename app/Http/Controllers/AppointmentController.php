@@ -38,6 +38,11 @@ class AppointmentController extends Controller
         return redirect()->back()->with('success', 'Appointment booked successfully!');
     }
 
-  
+  public function viewAllAppointments()
+    {
+        $appointments = Appointment::with('doctor')->get();
+        return view('Admin.viewallappointments', compact('appointments'));
+    }
+   
 
 }
