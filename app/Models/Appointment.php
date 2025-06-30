@@ -14,7 +14,12 @@ class Appointment extends Model
         'phone_number',
         'appointment_date',
         'reason_for_visit',
-        'department'
+        'department',
+        'city',
+        'doctor_id',
+        
+       
+        
     ];
 
 }

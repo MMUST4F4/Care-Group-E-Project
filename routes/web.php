@@ -12,12 +12,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\cities;
+use App\Http\Controllers\TestimonialController;
 
 Route::get('/', [HomeController::class, 'index']);
 
 
 Route::get('/news/{news}', [\App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
-Route::post('/appointment', [AppointmentController::class, 'store'])->middleware('auth:sanctum');
+Route::post('/appointment', [AppointmentController::class, 'store'])->middleware('auth:sanctum')->name('appointment.store');
 
 
 //These routes are for the user (patient)
@@ -40,6 +41,11 @@ Route::middleware([
     Route::get('/Status', function () {
         return view('User.Status');
     });
+
+   Route::get('/testimonials',function(){
+    return view('User.testimonial');
+   });
+   Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
 
     Route::get('/becomeadoctor', function () {
         $cities = cities::get();

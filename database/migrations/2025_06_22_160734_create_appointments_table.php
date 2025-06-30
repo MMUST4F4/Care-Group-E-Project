@@ -18,8 +18,10 @@ return new class extends Migration
             $table->bigInteger('phone_number');
             $table->date('appointment_date');
             $table->text('reason_for_visit')->nullable();
-            $table->string('department');
-            
+            $table->string('department')->nullable(); 
+            $table->string('city');
+            $table->bigInteger('doctor_id')->unsigned();
+            $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

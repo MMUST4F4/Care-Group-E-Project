@@ -41,5 +41,7 @@ class UserController extends Controller
        return response()->json($usersofcity);
 
     }
+    
+   
 }
 // This controller handles user-related actions, such as requesting to become a doctor and retrieving cities.

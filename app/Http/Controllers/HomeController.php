@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\cities;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Appointment;
 
 class HomeController extends Controller
 {
@@ -13,6 +15,10 @@ class HomeController extends Controller
     {
         $latestNews = News::orderBy('created_at', 'desc')->take(3)->get();
         $cities = cities::get();
-        return view('index', compact('latestNews','cities'));
+        $doctors = User::where('role', 'doctor')->get();
+        
+        $testimonials = \App\Models\Testimonial::orderBy('created_at', 'desc')->take(3)->get();
+        return view('index', compact('latestNews','cities','doctors','testimonials'));
     }
+   
 }
