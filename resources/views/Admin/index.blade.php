@@ -1,7 +1,8 @@
 <style>
+
     .container {
 
-        margin-top: 50px;
+        margin-top: 100px;
 
 
         background: #030202;
@@ -51,43 +52,169 @@
         border: 1px solid #ccc;
         /* Light gray border */
     }
+    @media screen and (max-width: 768px) {
+        .container {
+            max-width: 100%;
+            padding: 10px;
+        }
+        
+        
+    }
+
+
+    .news-form-section {
+    max-width: 100%;
+    padding: 30px 15px;
+    background: linear-gradient(90deg, rgb(2, 3, 2) 0%, rgba(173, 13, 13, 0.55) 35%, rgba(26, 2, 4, 1) 100%);
+    border-radius: 12px;
+   box-shadow: 0 6px 30px rgb(247, 3, 3);
+    margin: 0 auto;
+}
+
+.news-form-header h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color:rgb(255, 255, 255);
+}
+
+.news-form-header p {
+    color:rgb(250, 253, 255);
+    margin-bottom: 30px;
+}
+
+.news-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.text-danger {
+    font-size: 13px;
+}
+
+/* Button Style */
+.btn-danger {
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .news-form-header h2 {
+        font-size: 22px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .btn-danger {
+        width: 100%;
+    }
+}
 </style>
 
 @extends('Admin.HeaderFooter')
 @section('content')
 
+<br>
+<center><h1> News Section</h1></center>
+<hr>
+<br>
+<div class="news-form-section container my-5 p-4">
+    <div class="news-form-header text-center">
+        <h2>Add News in News Section</h2>
+        <p>Here you can add news that will be displayed in the news section of the website.</p>
+    </div>
 
+    <div class="news-form-container">
+        <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group mb-3">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control" required>
+                @error('title') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
 
-<div class="container" style="max-width:50%;  ">
-    <center>
-        <h1>Add News</h1>
-    </center>
+            <div class="form-group mb-3">
+                <label for="content">Content</label>
+                <textarea name="content" class="form-control" rows="5" required></textarea>
+                @error('content') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
 
-    <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="form-group mb-3">
-            <label>Title</label>
-            <input type="text" name="title" class="form-control  inputcolor" required>
-            @error('title') <small class="text-danger">{{ $message }}</small> @enderror
-        </div>
-        <div class="form-group mb-3">
-            <label>Content</label>
-            <textarea name="content" class="form-control" rows="5" required></textarea>
-            @error('content') <small class="text-danger">{{ $message }}</small> @enderror
-        </div>
-        <div class="form-group mb-3">
-            <label>Author</label>
-            <input type="text" name="author" class="form-control">
-            @error('author') <small class="text-danger">{{ $message }}</small> @enderror
-        </div>
-        <div class="form-group mb-3">
-            <label>Image (optional)</label>
-            <input type="file" name="image" class="form-control">
-            @error('image') <small class="text-danger">{{ $message }}</small> @enderror
-        </div>
-        <button type="submit" class="btn btn-danger">Add News</button>
-    </form>
+            <div class="form-group mb-3">
+                <label for="author">Author</label>
+                <input type="text" name="author" class="form-control">
+                @error('author') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="image">Image (optional)</label>
+                <input type="file" name="image" class="form-control">
+                @error('image') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-danger px-4 py-2">Add News</button>
+            </div>
+        </form>
+    </div>
 </div>
+<br>
+<br>
+<br><br>
+<br>
+<center><h1>Status</h1></center>
+<hr>
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Patients Appointment Status</h2>
+        <p class="text-muted">Here you can view the status of all patient appointments.</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($appointments as $appointment)
+                    <tr>
+                        <td>{{ $appointment->patient_name }}</td>
+                        <td>{{ $appointment->patient_email }}</td>
+                        <td>{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('d M Y') }}</td>
+                        <td>
+                            <span class="badge bg-danger text-dark">{{ $appointment->status }}</span>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4" class="text-muted">No appointments found.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<br>
 
 
 

@@ -145,6 +145,7 @@
                 <th>Department</th>
                 <th>Phone</th>
                 <th>Reason</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -156,6 +157,21 @@
                 <td>{{ $appointment->department }}</td>
                 <td>{{ $appointment->phone_number }}</td>
                 <td>{{ $appointment->reason_for_visit }}</td>
+                <td>{{ $appointment->status }}</td>
+                <td>
+                    @if($appointment->status == 'Not Approved')
+                        <form method="POST" action="{{ route('appointment.accept', $appointment->id) }}" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                        </form>
+                        <form method="POST" action="{{ route('appointment.reject', $appointment->id) }}" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    @else
+                        <span class="badge badge-secondary">{{ $appointment->status }}</span>
+                    @endif
+                </td>
             </tr>
             @endforeach
         </tbody>

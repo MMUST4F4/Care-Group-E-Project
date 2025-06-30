@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\cities;
+use App\Models\Appointment;
 
 class AdminController extends Controller
 {
@@ -63,4 +64,10 @@ class AdminController extends Controller
       $city->delete();
       return redirect()->back()->with('success', 'City deleted successfully.');
   }
+  public function index()
+{
+    $appointments = Appointment::all();
+    return view('Admin.index', compact('appointments'));
+}
+
 }

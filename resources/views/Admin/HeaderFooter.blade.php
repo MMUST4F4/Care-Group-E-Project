@@ -62,7 +62,7 @@
                 <div class="navbar-nav w-100" >
                     <a href="/dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Doctors</a>
+                        <a href="" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Doctors</a>
                         <div class="dropdown-menu bg-transparent border-0">
                            
                             <a href="/doctors" class="dropdown-item">View Doctor Requests</a>
@@ -74,14 +74,15 @@
                 
                     <a href="/addcities" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Add Cities</a>
                      <a href="/cities" class="nav-item nav-link"><i class="fa fa-table me-2"></i> Cities</a>
-                    <a href="/charts" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                     <a href="/complainsec" class="nav-item nav-link"><i class="fa fa-table me-2"></i> Complaints</a>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Other</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="/viewallappointments" class="dropdown-item">View All Appointments</a>
-                            <a href="/signup" class="dropdown-item">Sign Up</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item">Blank Page</a>
+                            <a href="/" class="dropdown-item">Back To website</a>
+                            
+                           
                         </div>
                     </div>
                 </div>

@@ -183,27 +183,7 @@
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
-                                    <li class="waves-effect waves-light">
-                                        <a href="#!">
-                                            <i class="ti-settings"></i> Settings
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="">
-                                            <i class="ti-user"></i> Profile
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="email-inbox.html">
-                                            <i class="ti-email"></i> My Messages
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="auth-lock-screen.html">
-                                            <i class="ti-lock"></i> Lock Screen
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
+                                    
                                         <!-- <a href="auth-normal-sign-in.html">
                                             
                                         </a> -->
@@ -236,8 +216,13 @@
                                     <ul>
                                         <li class="more-details">
                                             <a href="/doctor/profile"><i class="ti-user"></i>View Profile</a>
-                                            <a href="#!"><i class="ti-settings"></i>Settings</a>
-                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+
+                                            <form action="/logout" method="post">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger" style="width:100%;text-align:left;">
+                                                    <i class="ti-layout-sidebar-left"></i> Logout
+                                                </button>
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>
@@ -250,9 +235,10 @@
                                 <li class="active">
                                     <a href="/DoctorDashboard" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext btn-appoimtment">Appointment</span>
+                                        <span class="pcoded-mtext btn-appoimtment">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
+                                    <a href="/">Back To website</a>
                                 </li>
                    
                         </div>

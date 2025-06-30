@@ -13,6 +13,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\cities;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ComplaintController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -30,7 +31,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
             
       if(Auth::user()->role == 'admin') {
-           return view('Admin.index');
+            $appointments = Appointment::get();
+            return view('Admin.index', compact('appointments'));
         } else if(Auth::user()->role == 'doctor') {
              return redirect('/DoctorDashboard');
         } else {
@@ -53,6 +55,8 @@ Route::middleware([
         return view('becomeadoctor',compact('cities'));
     });
     Route::post('requestfordoctor',[UserController::class, 'requestForDoctor'])->name('requestfordoctor');
+  Route::get('/complaint', [ComplaintController::class, 'create'])->name('complaint.create');
+   Route::post('/complaint', [ComplaintController::class, 'store'])->name('complaint.store');
 });
 
  
@@ -63,6 +67,7 @@ Route::get('/widget', function () {
     $doctors = \App\Models\User::where('role', 'doctor')->get();
     return view('Admin.widget', compact('doctors'));
 });
+Route::get('/complainsec', [ComplaintController::class, 'index'])->name('complaint.index');
 
 
 Route::resource('news', \App\Http\Controllers\NewsController::class)->except(['show']);
@@ -115,9 +120,8 @@ Route::post('/doctor/availability', [DoctorAvailabilityController::class, 'store
 
   Route::get('/doctor/profile', [DoctorController::class, 'profile'])->name('doctor.profile');
     Route::post('/doctor/profile', [DoctorController::class, 'updateProfile'])->name('doctor.profile.update');
-
-
-
+Route::post('/appointment/accept/{appointment}', [DoctorController::class, 'acceptAppointment'])->name('appointment.accept');
+Route::post('/appointment/reject/{appointment}', [DoctorController::class, 'rejectAppointment'])->name('appointment.reject');
 
 
 });

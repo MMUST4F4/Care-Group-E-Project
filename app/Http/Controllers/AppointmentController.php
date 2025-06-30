@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
-use App\Models\User; 
+use App\Models\User;
+ 
 
 
 class AppointmentController extends Controller
@@ -43,6 +44,20 @@ class AppointmentController extends Controller
         $appointments = Appointment::get();
         return view('Admin.viewallappointments', compact('appointments'));
     }
-   
+    public function approveAppointment($id)
+    {
+        $appointment = Appointment::findOrFail($id);
+        $appointment->status = 'approved';
+        $appointment->save();
 
+        return redirect()->back()->with('success', 'Appointment approved successfully!');
+    }
+    public function rejectAppointment($id)
+    {
+        $appointment = Appointment::findOrFail($id);
+        $appointment->status = 'rejected';
+        $appointment->save();
+
+        return redirect()->back()->with('success', 'Appointment rejected successfully!');
+    }
 }

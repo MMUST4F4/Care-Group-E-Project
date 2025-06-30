@@ -111,6 +111,7 @@ h3 {
                 <th>Department</th>
                 <th>Phone</th>
                 <th>Reason</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -122,6 +123,7 @@ h3 {
                 <td>{{ $appointment->department }}</td>
                 <td>{{ $appointment->phone_number }}</td>
                 <td>{{ $appointment->reason_for_visit }}</td>
+                <td>{{ $appointment->action }}</td>
             </tr>
             @endforeach
         </tbody>

@@ -17,6 +17,7 @@ class Appointment extends Model
         'department',
         'city',
         'doctor_id',
+        'status',
         
        
         
