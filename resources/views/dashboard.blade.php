@@ -51,7 +51,7 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
+                        <h6 class="mb-0">{{Auth::user()->name}}</h6>
                         <span>Admin</span>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                      <div class="nav-item dropdown">
-                        <a href="#" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
+                        <a href="/complaint" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>

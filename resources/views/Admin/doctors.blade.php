@@ -19,6 +19,7 @@
 .table td {
     vertical-align: middle;
     padding: 12px;
+    color: white;
 }
 
 .badge {

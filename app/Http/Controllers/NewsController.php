@@ -44,7 +44,7 @@ class NewsController extends Controller
             $data['image'] = $request->file('image')->store('news_images', 'public');
         }
         News::create($data);
-        return redirect()->redirect()->back()->with('success', 'News added!');
+        return redirect()->route('news.index')->with('success', 'News added!');
     }
     
 
@@ -63,6 +63,11 @@ class NewsController extends Controller
     {
         $news = News::findOrFail($id);
         return view('news.edit', compact('news'));
+    }
+    public function showNews($id)
+    {
+        $news = News::findOrFail($id);
+        return view('news.show', compact('news'));
     }
 
     /**
@@ -92,5 +97,6 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
         $news->delete();
         return redirect()->route('news.index')->with('success', 'News deleted!');
+
     }
 }

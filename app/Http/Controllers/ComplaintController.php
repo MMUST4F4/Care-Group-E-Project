@@ -10,7 +10,7 @@ class ComplaintController extends Controller
     //
     public function create()
     {
-        return view('User.complaint_create'); // ✅ No folder, just the blade file name
+        return view('User.complaint_create'); // This view contains the form for submitting a complaint
     }
 
     public function store(Request $request)

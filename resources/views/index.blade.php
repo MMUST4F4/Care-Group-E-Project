@@ -62,7 +62,7 @@
 
                <div class="col-md-6 col-sm-6">
                     <div class="about-info">
-                         <h2 class="wow fadeInUp " data-wow-delay="0.6s">Welcome to <span class="  care">Care</span> <span class="group">Group</span></h2>
+                         <h2 class="wow fadeInUp " data-wow-delay="0.6s">Welcome to <span class="  care">Care</span> <span class=" ggroup">Group</span></h2>
                          <div class="wow fadeInUp " data-wow-delay="0.8s">
                               <p class="colourtxt">CARE Group is dedicated to enhancing the delivery of medical services through the integration of advanced technology and patient-centric solutions.</p>
                               <p class="colourtxt"> With a longstanding presence in the healthcare industry, we strive to provide a seamless platform that connects patients with qualified medical professionals across various specialties. Our objective is to simplify appointment scheduling, improve access to healthcare information, and foster efficient communication between patients and healthcare providers. This initiative reflects our commitment to innovation, excellence, and the continuous improvement of healthcare services.</p>
@@ -351,11 +351,14 @@
                               </div>
                          </div>
                     </form>
+                    
                </div>
 
           </div>
      </div>
 </section>
+<br>
+<br>
 
 
 
