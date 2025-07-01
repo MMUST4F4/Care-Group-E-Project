@@ -284,7 +284,7 @@
 
 <!-- MAKE AN APPOINTMENT -->
 <section id="appointment" data-stellar-background-ratio="3">
-     <div class="container">
+     <div class="container" id="appointment">
           <div class="row">
 
                <div class="col-md-6 col-sm-6">

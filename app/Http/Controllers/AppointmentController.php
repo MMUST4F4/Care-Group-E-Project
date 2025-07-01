@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade\Pdf;
+use  Barryvdh\DomPDF\Facade\Pdf; 
 
 
 class AppointmentController extends Controller
@@ -78,7 +78,7 @@ class AppointmentController extends Controller
     public function downloadPDF()
     {
         $appointments = Appointment::where('user_id', Auth::id())->get();
-        $pdf = PDF::loadView('User.pdf', compact('appointments'));
+        $pdf =  PDF::loadView('User.pdf', compact('appointments'));
         return $pdf->download('receipt.pdf');
     }
 }

@@ -6,7 +6,7 @@
     max-width: 95%;
     margin: 30px auto;
     padding: 20px;
-    background: linear-gradient(90deg, rgb(2, 3, 2) 0%, rgba(173, 13, 13, 0.55) 35%, rgba(26, 2, 4, 1) 100%);
+     background: rgb(85, 9, 9);
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     border-radius: 10px;
     color: white;

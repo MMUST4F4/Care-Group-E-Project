@@ -109,6 +109,9 @@
     font-size: 16px;
     border-radius: 6px;
 }
+.table   {
+    color: white !important;
+}
 
 /* Responsive adjustments */
 @media (max-width: 576px) {
@@ -181,10 +184,10 @@
 <div class="container my-5">
     <div class="text-center mb-4">
         <h2 class="fw-bold">Patients Appointment Status</h2>
-        <p class="text-muted">Here you can view the status of all patient appointments.</p>
+        <p  style="color: white;">Here you can view the status of all patient appointments.</p>
     </div>
 
-    <div class="table-responsive">
+    <div class="table-responsive" >
         <table class="table table-bordered table-hover text-center align-middle">
             <thead class="table-dark">
                 <tr>

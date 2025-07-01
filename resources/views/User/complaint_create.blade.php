@@ -47,8 +47,8 @@
     <link href="User/css/style.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
-            color: #fff;
+            background: white;
+            
             font-family: 'Segoe UI', sans-serif;
 
         }
@@ -56,16 +56,18 @@
         .complaint-container {
             max-width: 700px;
             margin: 40px auto;
-            background-color: #1e1e2f;
+            background-color:rgb(165, 165, 165);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.56);
+            backdrop-filter: blur(6px);
+            color: white;
         }
 
         .complaint-container h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: #ff4d4d;
+            color:rgb(219, 241, 213);
         }
 
         label {
@@ -77,30 +79,34 @@
             border-radius: 10px;
             border: none;
             padding: 12px 15px;
-            background-color: rgb(80, 14, 14);
+            background-color: rgb(255, 255, 255);
+            
         }
 
         .form-control:focus {
-            box-shadow: 0 0 0 0.2rem rgba(255, 77, 77, 0.25);
+            box-shadow: 0 0 0 0.2rem rgb(243, 243, 243);
         }
 
         .btn-submit {
-            background-color: #ff4d4d;
+            background-color:rgba(13, 253, 65, 0.87);
             border: none;
             padding: 12px;
             border-radius: 10px;
+            color: white;
             width: 100%;
             font-weight: bold;
             transition: background-color 0.3s ease;
         }
 
         .btn-submit:hover {
-            background-color: #e04343;
+            background-color:rgb(6, 94, 6);
+            color:rgba(92, 255, 16, 0.94) ;
         }
 
         .alert-success {
-            background-color: #28a745;
+            background-color:rgb(9, 236, 62);
             border: none;
+            color: rgb(247, 255, 249);
             border-radius: 10px;
         }
 
@@ -121,7 +127,7 @@
         </div>
         <!-- Spinner End -->
 
-        <!-- Sidebar Start -->
+    <!-- Sidebar Start -->
         <div class="sidebar" id="sidebar">
             <br>
             <br>
@@ -138,27 +144,17 @@
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">{{Auth::user()->name}}</h6>
-                        <span style="color: black;">Admin</span>
+                        <span>Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Appointment</a>
-
-
-                    <div class="nav-item dropdown">
-                        <a href="/Status" class="nav-link " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Status</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <!-- <a href="button.html" class="dropdown-item">Buttons</a>
-                            <a href="typography.html" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a> -->
-                        </div>
-                    </div>
-                    <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
+                    <a href="/dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     
-                    <div class="nav-item dropdown">
+
+
+                 
+                   
+                     <div class="nav-item dropdown">
                         <a href="/complaint" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
@@ -167,7 +163,7 @@
                             <a href="blank.html" class="dropdown-item">Blank Page</a> -->
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
+                     <div class="nav-item dropdown">
                         <a href="/testimonials" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Testimonials</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
@@ -176,10 +172,30 @@
                             <a href="blank.html" class="dropdown-item">Blank Page</a> -->
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
-                        <a href="/appointment" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Book Appointment</a>
+                     <div class="nav-item dropdown">
+                        <a href="#" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Book Appointment</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>
+                             <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>
+                            <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
+                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="blank.html" class="dropdown-item">Blank Page</a> -->
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="/myappointments" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>My Appointments</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                             <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>
+                            <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
+                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="blank.html" class="dropdown-item">Blank Page</a> -->
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="/" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Go Back To Website</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                             <li class="appointment-btn"><a href="/">Go Back To Website</a></li>
                             <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
@@ -196,7 +212,7 @@
 
 
         <div class="complaint-container">
-            <h2>📣 Submit a Complaint</h2>
+            <h2 style="color:white"> 📣 Submit a Complaint</h2>
 
             @if(session('success'))
             <div class="alert alert-success">

@@ -38,7 +38,7 @@
 }
 
 .approved-doctors-table thead {
-    background-color:rgb(104, 100, 100);
+    background-color: rgb(78, 18, 18);
     color: white;
 }
 

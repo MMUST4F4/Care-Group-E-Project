@@ -159,7 +159,7 @@
                 <td>{{ $appointment->reason_for_visit }}</td>
                 <td>{{ $appointment->status }}</td>
                 <td>
-                    @if($appointment->status == 'Not Approved')
+                    @if($appointment->status == 'pending')
                         <form method="POST" action="{{ route('appointment.accept', $appointment->id) }}" style="display:inline;">
                             @csrf
                             <button type="submit" class="btn btn-success btn-sm">Accept</button>

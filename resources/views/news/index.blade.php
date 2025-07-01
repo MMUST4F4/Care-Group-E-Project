@@ -2,7 +2,66 @@
 @extends('userheaderdooter')
 @section('usercontent')
 
-<div class="container">
+<style>
+    .container-fluid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        
+    }
+    .care {
+        font-size: 40px;
+        font-family: inherit;
+        padding-right: 2px;
+        color: #108916;
+
+
+        }
+
+        .group {
+            color: silver;
+            font-size: 45px;
+            font-family: inherit;
+        }
+
+        .grouplogo {
+            color: black;
+        }
+
+        .fa-user {
+            color: #6dff75;
+            font-size: 15px;
+            font-weight: 800vh;
+            margin-left: -9px;
+            padding-right: 2px;
+            padding: 5px;
+            height: 45px;
+
+        }
+
+
+        .care-logo {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 22px;
+            color: #4CAF50;
+            /* Care green */
+            transition: all 0.3s ease;
+            display: flex;
+        }
+        .care-logo .logo-icon {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
+<div class="container-fluid d-flex justify-content-center align-items-center flex-column my-5">
     <h2>All News</h2>
    
     <!-- <a href="{{ route('news.create') }}" class="btn btn-success mb-3">Add News</a> -->
