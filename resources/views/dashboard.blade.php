@@ -57,6 +57,7 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Appointment</a>
+                    
 
 
                     <div class="nav-item dropdown">
@@ -102,6 +103,26 @@
                         <a href="#" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Book Appointment</a>
                         <div class="dropdown-menu bg-transparent border-0">
                              <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>
+                            <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
+                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="blank.html" class="dropdown-item">Blank Page</a> -->
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="/myappointments" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>My Appointments</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                             <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>
+                            <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
+                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="blank.html" class="dropdown-item">Blank Page</a> -->
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="/" class="nav-link " data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Go Back To Website</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                             <li class="appointment-btn"><a href="/">Go Back To Website</a></li>
                             <!-- <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>

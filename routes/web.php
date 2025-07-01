@@ -57,6 +57,9 @@ Route::middleware([
     Route::post('requestfordoctor',[UserController::class, 'requestForDoctor'])->name('requestfordoctor');
   Route::get('/complaint', [ComplaintController::class, 'create'])->name('complaint.create');
    Route::post('/complaint', [ComplaintController::class, 'store'])->name('complaint.store');
+Route::get('/myappointments',[AppointmentController::class,('myappointments')])->name('myappointments');
+Route::get('/downloadPDF',[AppointmentController::class,('downloadPDF')])->name('downloadPDF');
+
 });
 
  

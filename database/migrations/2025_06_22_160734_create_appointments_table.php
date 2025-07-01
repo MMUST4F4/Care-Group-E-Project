@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('patient_email');
             $table->bigInteger('phone_number');
             $table->date('appointment_date');
+            $table->integer('user_id');
             $table->text('reason_for_visit')->nullable();
             $table->string('status')->default('Not Approved');
             $table->string('department')->nullable(); 

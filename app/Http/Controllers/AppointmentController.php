@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\User;
- 
+use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class AppointmentController extends Controller
@@ -23,20 +24,22 @@ class AppointmentController extends Controller
             'reason_for_visit'  => 'nullable|string',
             'city'             => 'required|string|max:100',
             'doctor_id'            => 'required|exists:users,id',
+           
         ]);
 
-        Appointment::create([
-            'patient_name'      => $request->patient_name,
-            'patient_email'     => $request->patient_email,
-            'appointment_date'  => $request->appointment_date,
-            // 'department'        => $request->department,
-            'phone_number'      => $request->phone_number,
-            'reason_for_visit'  => $request->reason_for_visit,
-            'city'              => $request->city,
-            'doctor_id'            => $request->doctor_id,
-        ]);
+        $table = new Appointment();
+        $table->patient_name = $request->patient_name;
+        $table->patient_email = $request->patient_email;
+        $table->appointment_date = $request->appointment_date;
+        $table->phone_number = $request->phone_number;
+        $table->reason_for_visit = $request->reason_for_visit;
+        $table->city = $request->city;
+        $table->doctor_id = $request->doctor_id;
+        $table->status = 'pending'; // Default status
+        $table->user_id = Auth::id(); // Assuming the user is authenticated
+        $table->save();
 
-        return redirect()->back()->with('success', 'Appointment booked successfully!');
+        return redirect()->back()->with('success', 'Appointment request submitted successfully!');
     }
 
   public function viewAllAppointments()
@@ -59,5 +62,23 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect()->back()->with('success', 'Appointment rejected successfully!');
+    }
+    public function myappointments()
+    {
+        $userId = Auth::id();
+        $appointments = Appointment::where('user_id', $userId)->get();
+        return view('User.myappointments', compact('appointments'));
+    }
+     public function printpdfdesign()
+    {
+        $userId = Auth::id();
+        $appointments = Appointment::where('user_id', $userId)->get();
+        return view('User.pdf', compact('appointments'));
+    }
+    public function downloadPDF()
+    {
+        $appointments = Appointment::where('user_id', Auth::id())->get();
+        $pdf = PDF::loadView('User.pdf', compact('appointments'));
+        return $pdf->download('receipt.pdf');
     }
 }
